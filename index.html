@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday! 🎂 </title>
+
+  <!-- Google Fonts: Poppins, Quicksand, & Caveat Handwriting -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Particles Background (Bintang & Cahaya Melayang) -->
+  <div class="particles-container" id="particlesContainer"></div>
+
+  <!-- ========================================================
+       1. LAYAR PEMBUKA (LANDING OVERLAY - BYPASS AUTOPLAY)
+       ======================================================== -->
+  <div class="landing-overlay" id="landingOverlay">
+    <div class="overlay-card glass glow-pink">
+      <div class="heart-pulse-box">
+        <i class="fa-solid fa-heart pulse-heart"></i>
+      </div>
+      <h2 class="overlay-title">Ada Kado Spesial Buat Kamu orang Yang sangat aku sayangin.</h2>
+      <p class="overlay-subtitle">Hari ini adalah hari istimewa. Buka sekarang ya untuk lanjutin Kado nya.❤️</p>
+      <button class="btn btn-glow pulse-btn" id="btnOpenExperience">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>Klik untuk Membuka ❤️</span>
+      </button>
+      <div class="overlay-hint">
+        <i class="fa-solid fa-volume-high"></i>
+        <span>gedein suara volume nya untuk mendengar lagu favorit kamu</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       FLOATING MUSIC CONTROLLER
+       ======================================================== -->
+  <div class="floating-music-widget" id="musicWidget" title="Putar / Jeda Musik">
+    <div class="music-disc" id="musicDisc">
+      <i class="fa-solid fa-music"></i>
+    </div>
+    <div class="music-wave" id="musicWave">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span class="music-tag" id="musicTag">Putar Musik</span>
+    <!-- File musik latar (Bisa taruh file MP3 di assets/music.mp3) -->
+    <audio id="bgAudio" loop preload="auto">
+      <source src="assets/Jatuh Suka - Tulus Lirik Lagu.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- ========================================================
+       MAIN WEBSITE CONTENT
+       ======================================================== -->
+  <main class="main-wrapper" id="mainWrapper">
+
+    <!-- HERO HEADER -->
+    <header class="hero-header text-center">
+      <div class="badge-pill">
+        <i class="fa-solid fa-sparkles"></i> Special Birthday Untuk kamu Shenaa
+      </div>
+      <h1 class="hero-title">Happy Birthday, <span class="highlight-pink" id="displayReceiverName">My Favorit Person</span> 🎂</h1>
+      <p class="hero-subtitle">Semoga hari ini dan seterusnya selalu dipenuhi dengan tawa, bahagia, dan cinta dan kasih sayang dari orang yang tulus sama kamu.</p>
+    </header>
+
+    <!-- ========================================================
+         2. ANIMASI KARTU ALA SPOTIFY WRAPPED (CAROUSEL / SLIDE)
+         ======================================================== -->
+    <section class="section wrapped-section">
+      <div class="container">
+        <div class="section-badge text-center">
+          <i class="fa-brands fa-spotify"></i> YOUR SPECIAL WRAPPED
+        </div>
+        <h2 class="section-title text-center">Kata-Kata Spesial Untuk Kamu Wanita Hebat </h2>
+        <p class="section-subtitle text-center">Geser kartu ke kanan/kiri untuk melihat Kelanjutan nya cantik</p>
+
+        <div class="wrapped-carousel-container" id="wrappedContainer">
+          <!-- Story Progress Bars at Top -->
+          <div class="wrapped-progress-bars">
+            <div class="p-bar active" data-index="0"><span></span></div>
+            <div class="p-bar" data-index="1"><span></span></div>
+            <div class="p-bar" data-index="2"><span></span></div>
+            <div class="p-bar" data-index="3"><span></span></div>
+          </div>
+
+          <!-- Carousel Slides -->
+          <div class="wrapped-slides-wrapper" id="slidesWrapper">
+
+            <!-- Slide 1: 365 Hari Bersama -->
+            <div class="wrapped-card active" data-slide="0">
+              <div class="card-inner">
+                <div class="card-tag"><i class="fa-solid fa-calendar-heart"></i> Hari Pertama aku kenalan sama kamu</div>
+                <div class="card-big-stat">35 Hari</div>
+                <h3 class="card-heading">Penuh Warna & Tawa Bersamamu</h3>
+                <p class="card-desc">Setiap menit yang kita lalui bersama selalu terasa seperti lagu favorit yang diputar berulang-ulang tanpa pernah bosan, yang dimana aku selalu tersenyum jika melihat chat kamu.</p>
+                <div class="card-stat-pill">
+                  <i class="fa-solid fa-clock"></i> Aku sayang banget sama kamu, semoga suatu saat kita bisa bertemu secara langsung
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Top Track -->
+            <div class="wrapped-card" data-slide="1">
+              <div class="card-inner">
+                <div class="card-tag"><i class="fa-solid fa-compact-disc"></i> SUARA KAMU YANG SELALU AKU INGAT</div>
+                <div class="card-big-stat">Suara Tawamu, dan pertama kali nya kita call an  </div>
+                <h3 class="card-heading">Yang dimana kita bahas hal yang sangat lucu dan cerita yang bakal aku ingat terus selamanya</h3>
+                <p class="card-desc">Aku Ingat sekali pas kamu ucapkan kata pertama untuk aku, selalu berhasil jadi obat paling ampuh saat lelah dan cape sama keadaan suara kamu buat aku terus bersemangat setiap harinya.</p>
+                <div class="soundwave-anim">
+                  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Top Genre -->
+            <div class="wrapped-card" data-slide="2">
+              <div class="card-inner">
+                <div class="card-tag"><i class="fa-solid fa-heart-pulse"></i> Sifat yang paling aku suka</div>
+                <div class="card-big-stat">Sifat bawel kamu yang selalu cerewet adalah kebahagian untuk aku💖</div>
+                <h3 class="card-heading">Dibalik semua cerewetnya kamu,aku tau ada rasa peduli dan cinta begitu besar disana.</h3>
+                <p class="card-desc">Suaramu adalah melodi paling indah yang tidak pernah ingin aku hilangkan dari hidupku.Bahagia terus ya my favorit person</p>
+                <div class="genre-tags">
+                  <span class="gtag">50% Lucu</span>
+                  <span class="gtag">30% Manis</span>
+                  <span class="gtag">20% Bikin Kangen</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Artis Favorit -->
+            <div class="wrapped-card" data-slide="3">
+              <div class="card-inner">
+                <div class="card-tag"><i class="fa-solid fa-crown"></i>KAMU ADALAH ORANG FAVORIT AKU</div>
+                <div class="card-big-stat">KAMU PEMENANG PINTU HATIKU</div>
+                <h3 class="card-heading">Dari milyaran orang di dunia.kamu adalah salah-satunya yang selalu berhasil bikin aku merasa paling bahagia.</h3>
+                <p class="card-desc">Terima kasih sudah lahir ke dunia dan menjadi sosok paling berharga. Selamat ulang tahun, manusia favoritku!</p>
+                <div class="card-stat-pill">
+                  <i class="fa-solid fa-award"></i>Kamu peringkat 1 di hatiku
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-nav">
+            <button class="c-btn" id="btnPrevSlide" title="Kembali"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="carousel-dots" id="carouselDots">
+              <span class="c-dot active" data-index="0"></span>
+              <span class="c-dot" data-index="1"></span>
+              <span class="c-dot" data-index="2"></span>
+              <span class="c-dot" data-index="3"></span>
+            </div>
+            <button class="c-btn" id="btnNextSlide" title="Selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         3. SURAT UCAPAN INTERAKTIF (AMPLOP 3D + TYPEWRITER)
+         ======================================================== -->
+    <section class="section letter-section">
+      <div class="container">
+        <div class="section-badge text-center">
+          <i class="fa-solid fa-envelope"></i> SURAT KHUSUS
+        </div>
+        <h2 class="section-title text-center">Surat Cinta & Doa Tulus ku 💌</h2>
+        <p class="section-subtitle text-center">Klik amplop nya ya untuk membuka suratnya!</p>
+
+        <!-- 3D Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <div class="envelope" id="envelopeElement">
+            <div class="envelope-back"></div>
+            <!-- Letter Inside -->
+            <div class="letter-sheet" id="letterSheet">
+              <div class="letter-washi-tape"></div>
+              <div class="letter-header">
+                <span class="letter-badge"><i class="fa-solid fa-heart"></i> Untukmu</span>
+                <h3 class="letter-to">Dear <span class="highlight-pink" id="letterReceiverName">Fadlan </span>,</h3>
+                <span class="letter-date" id="letterCurrentDate">Hari Bahagia</span>
+              </div>
+              <div class="letter-content-area">
+                <p id="typewriterParagraph" class="typewriter-text"></p>
+              </div>
+              <div class="letter-footer">
+                <p class="letter-from-title">Tertanda dengan penuh cinta,</p>
+                <p class="letter-from-name" id="letterSenderName">Orang yang Selalu Menyayangimu ❤️</p>
+              </div>
+            </div>
+            <!-- Envelope Front Pocket -->
+            <div class="envelope-pocket"></div>
+            <!-- Envelope Flap (3D Flip) -->
+            <div class="envelope-flap" id="envelopeFlap"></div>
+            <!-- Heart Wax Seal -->
+            <div class="envelope-seal" id="envelopeSeal" title="Klik untuk membuka amplop">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typewriter Speed & Skip Controls -->
+        <div class="typewriter-controls hidden" id="typewriterControls">
+          <button class="btn btn-control" id="btnSpeedUp" title="Percepat teks">
+            <i class="fa-solid fa-forward-fast"></i> <span>Percepat (2x)</span>
+          </button>
+          <button class="btn btn-control" id="btnSkipTyping" title="Lewati animasi ketik">
+            <i class="fa-solid fa-angles-right"></i> <span>Lewati Animasi</span>
+          </button>
+          <button class="btn btn-control" id="btnReplayTyping" title="Ulangi mengetik">
+            <i class="fa-solid fa-rotate-right"></i> <span>Ketik Ulang</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         4. TIUP LILIN VIRTUAL & EFEK KONFETI
+         ======================================================== -->
+    <section class="section cake-section">
+      <div class="container text-center">
+        <div class="cake-box-card glass glow-pink">
+          <div class="section-badge">
+            <i class="fa-solid fa-cake-candles"></i> TIUP LILIN YA CINTAKU
+          </div>
+          <h2 class="section-title">Yuk Tiup Lilin nya! 🕯️</h2>
+          <p class="section-subtitle">Pejamkan matamu sejenak, buat satu harapan paling indah, lalu klik lilinya</p>
+
+          <!-- Cake Illustration -->
+          <div class="cake-display-area">
+            <div class="virtual-cake" id="virtualCake" title="Klik lilin untuk meniup!">
+              <!-- Candle -->
+              <div class="cake-candle" id="cakeCandle">
+                <div class="candle-glow" id="candleGlow"></div>
+                <div class="flame" id="candleFlame"></div>
+                <div class="smoke-puff hidden" id="candleSmoke">💨</div>
+                <div class="candle-wick"></div>
+                <div class="candle-body"></div>
+              </div>
+
+              <!-- Cake Layers -->
+              <div class="cake-decorations">
+                <span>🍓</span><span>✨</span><span>🍓</span><span>✨</span><span>🍓</span>
+              </div>
+              <div class="cake-tier tier-top"></div>
+              <div class="cake-tier tier-middle"></div>
+              <div class="cake-tier tier-base"></div>
+              <div class="cake-plate"></div>
+            </div>
+          </div>
+
+          <div class="cake-actions">
+            <p id="cakeStatusText" class="cake-status-message">Ketuk lilin di atas atau klik tombol tiup di bawah 👇</p>
+            <button class="btn btn-glow btn-blow" id="btnBlowCandle">
+              <i class="fa-solid fa-wind"></i>
+              <span>Tiup Lilin 🕯️</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         5. GALERI FOTO KENANGAN (GRID & LIGHTBOX POP-UP)
+         ======================================================== -->
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="section-badge text-center">
+          <i class="fa-solid fa-images"></i> PHOTO MEMORIES
+        </div>
+        <h2 class="section-title text-center">Galeri photo cantik aku 📸</h2>
+        <p class="section-subtitle text-center">Klik pada foto mana pun untuk membaca pesan nya ya !</p>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Photo 1 -->
+          <div class="gallery-card polaroid-style tilt-1" data-caption="Hari pertama di mana setiap melihat foto kamu aku canggung tapi senengnya bukan main" data-img="assets/foto 5.jpeg">
+            <div class="washi-tape"></div>
+            <div class="photo-frame">
+              <img src="assets/WhatsApp Image 2026-11-09 at 16.43.48.jpeg" alt="Momen 1" />
+              <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <p class="photo-caption font-handwriting">Foto yang menurut aku sangat cantik </p>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="gallery-card polaroid-style tilt-2" data-caption="Senyuman kamu yang selalu berhasil mengubah hari yang berat jadi terasa ringan untuk aku " data-img="assets/foto 4.jpeg">
+            <div class="washi-tape"></div>
+            <div class="photo-frame">
+              <img src="assets/WhatsApp Image 2026-11-09 at 16.42.53.jpeg" alt="Momen 2" />
+              <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <p class="photo-caption font-handwriting">Senyum kamu yang manis </p>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="gallery-card polaroid-style tilt-3" data-caption="post foto yang sangat lucu yang menurut aku gemasin, Membuat hatiku langsung deg-degan haha" data-img="assets/foto 6.jpeg">
+            <div class="washi-tape"></div>
+            <div class="photo-frame">
+              <img src="assets/foto 3.jpeg" alt="Momen 3" />
+              <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <p class="photo-caption font-handwriting">kamera yang ga kalah indah sama kamu</p>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="gallery-card polaroid-style tilt-4" data-caption="Foto yang dimana aku terus lihat jika aku kangen kamu haha, semoga kamu terus bersama aku ya " data-img="assets/foto 7.jpeg">
+            <div class="washi-tape"></div>
+            <div class="photo-frame">
+              <img src="assets/foto 2.jpeg" alt="Momen 4" />
+              <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <p class="photo-caption font-handwriting">foto tercantik kamu </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL UNTUK PERBESAR FOTO -->
+    <div class="lightbox-modal" id="lightboxModal">
+      <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+      <div class="lightbox-content glass glow-pink">
+        <button class="lightbox-close" id="lightboxClose" title="Tutup"><i class="fa-solid fa-xmark"></i></button>
+        <div class="lightbox-img-wrapper">
+          <img id="lightboxImg" src="" alt="Zoomed Photo" />
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         6. KOTAK HARAPAN & DOA (RANDOM WISH GENERATOR)
+         ======================================================== -->
+    <section class="section wish-section">
+      <div class="container text-center">
+        <div class="wish-generator-card glass glow-pink">
+          <div class="section-badge">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> RANDOM WISH 
+          </div>
+          <h2 class="section-title">Kotak Doa & Harapan Hari Ini</h2>
+          <p class="section-subtitle">Ketuk tombol di bawah untuk mengambil kutipan doa spesial secara acak untukmu!</p>
+
+          <div class="wish-display-box" id="wishDisplayBox">
+            <div class="wish-icon-wrap">
+              <i class="fa-solid fa-star-shooting wish-magic-icon"></i>
+            </div>
+            <p class="wish-quote" id="wishQuoteText">"Semoga di usiamu yang baru ini, setiap langkahmu selalu dinaungi keberuntungan, kesehatan, dan kebahagiaan yang melimpah ruah! "</p>
+          </div>
+
+          <button class="btn btn-glow btn-random-wish" id="btnRandomWish">
+            <i class="fa-solid fa-dice"></i>
+            <span>Klik untuk Ambil Doa Hari Ini </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         7. TOMBOL BALASAN WHATSAPP (CALL-TO-ACTION)
+         ======================================================== -->
+    <section class="section whatsapp-section">
+      <div class="container text-center">
+        <div class="whatsapp-card glass glow-pink">
+          <div class="wa-icon-large">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h2 class="wa-title">Kirim balesan ke WhatsApp ya ❤️</h2>
+          <p class="wa-subtitle">Kira-kira apa nih kesan atau balasanmu setelah membuka website ulang tahun ini? Yuk kirim langsung pesannya!</p>
+
+          <a href="#" class="btn btn-whatsapp pulse-btn" id="btnWhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Balas Pesan via WhatsApp </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer text-center">
+      <p>Dibuat dengan segenap rasa cinta ❤️ khusus di hari ulang tahunmu.</p>
+      <p class="footer-copy">Forever & Always | Happy Birthday </p>
+      <p>form fadlan</p>
+    </footer>
+
+  </main>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
